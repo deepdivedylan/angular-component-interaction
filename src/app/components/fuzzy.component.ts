@@ -5,4 +5,16 @@ import {Component} from "@angular/core";
 	templateUrl: "./templates/fuzzy.html"
 })
 
-export class FuzzyComponent {}
+export class FuzzyComponent {
+
+	fuzzyBase: string = "https://placekitten.com/g/";
+	fuzzySize: number = 256;
+
+	setFuzzySize(newFuzzySize: number): void {
+		this.fuzzySize = newFuzzySize;
+	}
+
+	getFuzzyUrl(): string {
+		return(this.fuzzyBase + this.fuzzySize + "/" + this.fuzzySize);
+	}
+}
