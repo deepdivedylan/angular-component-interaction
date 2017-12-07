@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
 	selector: "fuzzy",
@@ -9,10 +9,12 @@ export class FuzzyComponent {
 
 	fuzzyBase: string = "https://placekitten.com/g/";
 	fuzzySize: number = 256;
+	@Output()
+	fuzzyChangeEvent = new EventEmitter<number>();
 
 	setFuzzySize(newFuzzySize: number): void {
-		console.log(newFuzzySize);
 		this.fuzzySize = newFuzzySize;
+		this.fuzzyChangeEvent.emit(this.fuzzySize);
 	}
 
 	getFuzzyUrl(): string {

@@ -4,4 +4,10 @@ import {Component} from "@angular/core";
 	templateUrl: "./templates/home.html"
 })
 
-export class HomeComponent {}
+export class HomeComponent {
+	fuzzySize: number = 256;
+
+	onFuzzySizeChange(newFuzzySize: number): void {
+		this.fuzzySize = newFuzzySize;
+	}
+}
