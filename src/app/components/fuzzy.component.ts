@@ -11,6 +11,7 @@ export class FuzzyComponent {
 	fuzzySize: number = 256;
 
 	setFuzzySize(newFuzzySize: number): void {
+		console.log(newFuzzySize);
 		this.fuzzySize = newFuzzySize;
 	}
 
