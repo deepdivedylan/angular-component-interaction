@@ -1,11 +1,12 @@
 import {RouterModule, Routes} from "@angular/router";
+import {FuzzyComponent} from "./components/fuzzy.component";
 import {HomeComponent} from "./components/home.component";
 import {APP_BASE_HREF} from "@angular/common";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {DeepDiveInterceptor} from "./services/deep.dive.interceptor";
 
 
-export const allAppComponents = [HomeComponent];
+export const allAppComponents = [FuzzyComponent, HomeComponent];
 
 export const routes: Routes = [
 	{path: "", component: HomeComponent}
