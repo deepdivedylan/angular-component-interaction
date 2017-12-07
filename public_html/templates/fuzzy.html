@@ -1,4 +1,3 @@
 <h2>Fuzzy Component</h2>
 <p>Size: {{ fuzzySize }}</p>
-<p>URL: {{ getFuzzyUrl() }}</p>
 <input type="range" name="fuzzySize" id="fuzzySize" min="0" max="2048" value="256" (change)="setFuzzySize($event.target.value);" />

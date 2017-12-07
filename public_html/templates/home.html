@@ -1,2 +1,7 @@
 <h1>Home Component</h1>
+<figure>
+	<img [src]="getFuzzyUrl()" alt="Feel the Fuzzy" />
+	<figcaption><strong>Figure 9:</strong> Fuzzy</figcaption>
+</figure>
+<p>URL: {{ getFuzzyUrl() }}</p>
 <fuzzy (fuzzyChangeEvent)="onFuzzySizeChange($event)"></fuzzy>
