@@ -27,7 +27,7 @@ export class NapComponent implements OnInit {
 		this.sleep(ms).then(() => this.napStatus = "kitty is awake");
 	}
 
-	async startNap() : Promise<any> {
-		return(this.takeNap(this.napForm.controls.napTime.value));
+	startNap() : void {
+		this.takeNap(this.napForm.controls.napTime.value);
 	}
 }
