@@ -1,6 +1,6 @@
 <h2>Nap Component</h2>
 <p>Nap Status: {{ napStatus }}</p>
-<form [formGroup]="napForm" (submit)="startNap()">
+<form [formGroup]="napForm" (submit)="startNap()" novalidate>
 	<div class="form-group">
 		<label for="napTime">Nap Time</label>
 		<div class="input-group">
