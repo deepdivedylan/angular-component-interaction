@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 
 export class NapComponent implements OnInit {
+	asleep: boolean = false;
 	napForm: FormGroup;
 	napStatus: string = "kitty is awake";
 
@@ -23,8 +24,12 @@ export class NapComponent implements OnInit {
 	}
 
 	async takeNap(ms: number): Promise<any> {
+		this.asleep = true;
 		this.napStatus = "kitty is asleep";
-		this.sleep(ms).then(() => this.napStatus = "kitty is awake");
+		this.sleep(ms).then(() => {
+			this.asleep = false;
+			this.napStatus = "kitty is awake";
+		});
 	}
 
 	startNap() : void {
