@@ -4,9 +4,10 @@ import {HomeComponent} from "./components/home.component";
 import {APP_BASE_HREF} from "@angular/common";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {DeepDiveInterceptor} from "./services/deep.dive.interceptor";
+import {NapComponent} from "./components/nap.component";
 
 
-export const allAppComponents = [FuzzyComponent, HomeComponent];
+export const allAppComponents = [FuzzyComponent, HomeComponent, NapComponent];
 
 export const routes: Routes = [
 	{path: "", component: HomeComponent}

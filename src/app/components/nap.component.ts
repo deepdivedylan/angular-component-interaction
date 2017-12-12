@@ -5,5 +5,5 @@ import {Component, EventEmitter, Output} from "@angular/core";
 	templateUrl: "./templates/nap.html"
 })
 
-export class FuzzyComponent {
+export class NapComponent {
 }
