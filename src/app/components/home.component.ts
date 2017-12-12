@@ -1,5 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {NapComponent} from "./nap.component";
 
 @Component({
 	templateUrl: "./templates/home.html"
@@ -9,6 +10,7 @@ export class HomeComponent implements OnInit {
 	asleep: boolean = false;
 	fuzzySize: number = 256;
 	napLocationForm: FormGroup;
+	@ViewChild(NapComponent) napComponent: NapComponent;
 
 	constructor(private formBuilder: FormBuilder) {}
 
@@ -32,6 +34,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	findNapLocation(): void {
-
+		this.napComponent.startNap();
 	}
 }

@@ -16,4 +16,7 @@
 			<input class="form-control" type="text" id="napLocation" name="napLocation" formControlName="napLocation" />
 		</div>
 	</div>
+	<button class="btn btn-info"><i class="fa fa-map-marker" aria-hidden="true"></i> Set Location</button>
 </form>
+<p *ngIf="asleep"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Waiting for fuzzy to awaken!</p>
+<p *ngIf="!asleep"><i class="fa fa-check" aria-hidden="true"></i> Ready to submit!</p>
