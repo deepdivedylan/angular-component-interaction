@@ -10,6 +10,8 @@ export class NapComponent implements OnInit {
 	asleep: boolean = false;
 	napForm: FormGroup;
 	napStatus: string = "kitty is awake";
+	@Output()
+	asleepEmitter = new EventEmitter<boolean>();
 
 	constructor(private formBuilder: FormBuilder) {}
 
@@ -28,6 +30,7 @@ export class NapComponent implements OnInit {
 		this.napStatus = "kitty is asleep";
 		this.sleep(ms).then(() => {
 			this.asleep = false;
+			this.asleepEmitter.emit(this.asleep);
 			this.napStatus = "kitty is awake";
 		});
 	}
