@@ -11,7 +11,7 @@ export class NapComponent implements OnInit {
 	napForm: FormGroup;
 	napStatus: string = "kitty is awake";
 	@Output()
-	asleepEmitter = new EventEmitter<boolean>();
+	asleepChangeEvent = new EventEmitter<boolean>();
 
 	constructor(private formBuilder: FormBuilder) {}
 
@@ -27,10 +27,11 @@ export class NapComponent implements OnInit {
 
 	async takeNap(ms: number): Promise<any> {
 		this.asleep = true;
+		this.asleepChangeEvent.emit(this.asleep);
 		this.napStatus = "kitty is asleep";
 		this.sleep(ms).then(() => {
 			this.asleep = false;
-			this.asleepEmitter.emit(this.asleep);
+			this.asleepChangeEvent.emit(this.asleep);
 			this.napStatus = "kitty is awake";
 		});
 	}
