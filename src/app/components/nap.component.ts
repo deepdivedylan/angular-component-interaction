@@ -8,14 +8,13 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 export class NapComponent implements OnInit {
 	napForm: FormGroup;
-	napTime: number = 2000;
 	napStatus: string = "kitty is awake";
 
 	constructor(private formBuilder: FormBuilder) {}
 
 	ngOnInit(): void {
 		this.napForm = this.formBuilder.group({
-			napTime: [this.napTime, [Validators.required, Validators.min(0), Validators.max(10000)]]
+			napTime: [2000, [Validators.required, Validators.min(0), Validators.max(10000)]]
 		});
 	}
 
@@ -25,15 +24,10 @@ export class NapComponent implements OnInit {
 
 	async takeNap(ms: number): Promise<any> {
 		this.napStatus = "kitty is asleep";
-		this.sleep(ms);
-		this.napStatus = "kitty is awake";
+		this.sleep(ms).then(() => this.napStatus = "kitty is awake");
 	}
 
-	setNapTime(newNapTime: number) : void {
-		this.napTime = newNapTime;
-	}
-
-	startNap() : void {
-
+	async startNap() : Promise<any> {
+		return(this.takeNap(this.napForm.controls.napTime.value));
 	}
 }
